@@ -57,7 +57,7 @@ export default function RegisterPage() {
       options: { data: { full_name: fullName } },
     });
 
-    if (error) {
+    if (error?.message) {
       showToast(error.message, "error");
     } else if (data.user) {
       await supabase.from("profiles").upsert({
