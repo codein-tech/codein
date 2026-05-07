@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState,useEffect , useRef } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, Eye, EyeOff, Save, Send, Image } from "lucide-react";
@@ -9,6 +9,7 @@ import { slugify } from "@/lib/utils";
 import { useToast } from "@/components/ui/Toast";
 import Navbar from "@/components/layout/Navbar";
 import TelegraphEditor from "@/components/article/TelegraphEditor";
+
 
 export default function NewArticlePage() {
   const [title, setTitle] = useState("");
@@ -19,6 +20,37 @@ export default function NewArticlePage() {
   const router = useRouter();
   const supabase = createClient();
   const { showToast } = useToast();
+  const toastShown = useRef(false);
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+
+      if (!user) {
+        if (!toastShown.current) {
+          toastShown.current = true;
+
+          showToast("Anda harus login untuk membuat artikel", "error");
+
+          setTimeout(() => {
+            router.replace("/");
+          }, 5000);
+        }
+
+        return;
+      }
+
+      setLoading(false);
+    };
+
+    checkAuth();
+  }, []);
+
+  if (loading) {
+    return null;
+  }
 
   const handleSave = async (pub: boolean) => {
     if (!title.trim() || !content.trim()) {
