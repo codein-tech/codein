@@ -64,15 +64,18 @@ export default function LoginPage() {
 
         <div className="relative text-center text-white max-w-sm">
           {/* Logo */}
-          <div className="w-24 h-24 bg-white rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-2xl animate-float">
-            <Image
-              src="/images/codein.png"
-              alt="CodeIn Logo"
-              width={72}
-              height={72}
-              className="object-contain"
-            />
-          </div>
+           <Link href="/">
+            <div className="w-24 h-24 bg-white rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-2xl animate-float">
+              <Image
+                src="/images/codein.png"
+                alt="CodeIn Logo"
+                width={72}
+                height={72}
+                className="object-contain"
+              />
+            </div>
+            </Link>
+
 
           <h1 className="font-display font-bold text-4xl mb-3 leading-tight">
             Selamat Kembali!
