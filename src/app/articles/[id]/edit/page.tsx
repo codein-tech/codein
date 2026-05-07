@@ -38,7 +38,7 @@ export default function EditArticlePage() {
       .select("*")
       .eq("id", id)
       .single()
-      .then(({ data, error }) => {
+      .then(({ data, error }: { data: Article | null; error: any }) => {
         if (error || !data) {
           router.push("/dashboard");
           return;
