@@ -695,7 +695,7 @@ export default async function HomePage() {
                 {[
                   {
                     icon: Users,
-                    value: `${memberCount || 0}+`,
+                    value: `60+`,
                     label: "Member Bergabung",
                   },
                   {
