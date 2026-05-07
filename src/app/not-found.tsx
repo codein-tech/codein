@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function NotFound() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-white dark:bg-dark-900 px-4 text-center">
-      <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-xl ">
+      <div className="w-24 h-24 bg-white rounded-2xl flex items-center justify-center mb-6">
                               <Image
                         src="/images/codein.png"
                         alt="CodeIn Logo"
