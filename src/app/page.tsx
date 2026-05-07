@@ -434,7 +434,7 @@ export default async function HomePage() {
                             alt="CodeIn Logo"
                             width={160}
                             height={160}
-                            className="object-contain"
+                            className="object-contain rounded-full"
                           />
                         </div>
                         <div className="text-center">
