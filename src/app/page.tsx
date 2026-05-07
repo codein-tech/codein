@@ -747,7 +747,7 @@ export default async function HomePage() {
                 },
                 {
                   q: "Siapa yang bisa bergabung di CodeIn?",
-                  a: "CodeIn terbuka untuk seluruh mahasiswa IT di Universitas Muhammadiyah Bengkulu, dari semester 1 hingga yang sudah skripsi. Semua level keahlian disambut.",
+                  a: "CodeIn terbuka untuk seluruh mahasiswa di Universitas Muhammadiyah Bengkulu, dari semester 1 hingga yang sudah skripsi. Semua level keahlian disambut.",
                 },
                 {
                   q: "Apakah saya bisa menulis artikel di CodeIn?",
