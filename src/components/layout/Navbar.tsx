@@ -158,7 +158,7 @@ export default function Navbar() {
             <button onClick={toggleTheme} className="btn-ghost p-2">
               {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </button>
-            <button onClick={() => setMenuOpen(!menuOpen)} className="btn-ghost p-2">
+            <button onClick={() => (setMenuOpen(!menuOpen), setScrolled(true))} className="btn-ghost p-2">
               {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
