@@ -62,7 +62,7 @@ export default function EditArticlePage() {
         cover_image: coverImage || null,
         published: pub,
         updated_at: new Date().toISOString(),
-      })
+      } as any)
       .eq("id", articleId)
       .select()
       .single();
