@@ -203,7 +203,7 @@ export default async function HomePage() {
 
             {/* Headline — TypingWord is on its own block line so it never causes
                 reflow on "Belajar &" or "Bersama CodeIn" lines, fixing scroll jank */}
-            <h1 className="font-display font-bold text-5xl sm:text-6xl lg:text-7xl text-gray-900 dark:text-white leading-tight mb-6 animate-fade-up animate-delay-100">
+            <h1 className="font-display font-bold text-4xl sm:text-5xl lg:text-7xl text-gray-900 dark:text-white leading-tight mb-6 animate-fade-up animate-delay-100">
               Belajar &amp;
               {/* isolated block — width changes here don't affect other lines */}
               <TypingWord />
