@@ -1,5 +1,5 @@
 "use client";
-
+export const dynamic = "force-dynamic";
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -31,8 +31,7 @@ export default function LoginPage() {
   const [showPass, setShowPass] = useState(false);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const redirect = searchParams.get("redirect") || "/dashboard";
+ const redirect = "/dashboard";
   const supabase = createClient();
   const { showToast } = useToast();
 
