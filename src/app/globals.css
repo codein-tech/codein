@@ -18,14 +18,14 @@
 
   html {
     scroll-behavior: smooth;
-     overflow-x: hidden;
+    overflow-x: hidden;
   }
 
   body {
     @apply bg-white dark:bg-dark-900 text-gray-900 dark:text-gray-100;
     font-family: var(--font-plus-jakarta);
     -webkit-font-smoothing: antialiased;
-     overflow-x: hidden;
+    overflow-x: hidden;
   }
 
   h1,
@@ -211,6 +211,110 @@
 /* FAQ accordion smooth transition */
 details > div {
   animation: fade-up 0.2s ease;
+}
+
+/* ── Marquee ── */
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes marquee-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+.marquee-left {
+  animation: marquee-left 30s linear infinite;
+}
+.marquee-right {
+  animation: marquee-right 35s linear infinite;
+}
+.marquee-left:hover,
+.marquee-right:hover {
+  animation-play-state: paused;
+}
+
+/* ── AOS (Animate On Scroll) ── */
+.aos-init {
+  opacity: 0;
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.aos-up    { transform: translateY(36px); }
+.aos-left  { transform: translateX(-36px); }
+.aos-right { transform: translateX(36px); }
+.aos-fade  { transform: none; }
+
+.aos-visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* ── Aurora / animated gradient orbs ── */
+@keyframes aurora-1 {
+  0%,100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(60px, -40px) scale(1.12); }
+  66%      { transform: translate(-40px, 30px) scale(0.95); }
+}
+@keyframes aurora-2 {
+  0%,100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(-50px, 50px) scale(1.08); }
+  66%      { transform: translate(70px, -30px) scale(1.15); }
+}
+@keyframes aurora-3 {
+  0%,100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(30px, 60px) scale(0.9); }
+}
+.aurora-1 { animation: aurora-1 12s ease-in-out infinite; }
+.aurora-2 { animation: aurora-2 15s ease-in-out infinite; }
+.aurora-3 { animation: aurora-3 18s ease-in-out infinite; }
+
+/* ── Shimmer text ── */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.text-shimmer {
+  background: linear-gradient(
+    90deg,
+    #3b82f6 0%,
+    #60a5fa 30%,
+    #93c5fd 50%,
+    #60a5fa 70%,
+    #3b82f6 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+/* ── Counter pop ── */
+@keyframes counter-pop {
+  0%   { transform: scale(0.7); opacity: 0; }
+  70%  { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.animate-counter-pop {
+  animation: counter-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* ── Glow pulse on buttons ── */
+@keyframes btn-glow {
+  0%,100% { box-shadow: 0 0 12px 0 rgba(59,130,246,0.35); }
+  50%      { box-shadow: 0 0 28px 4px rgba(59,130,246,0.55); }
+}
+.animate-btn-glow {
+  animation: btn-glow 2.5s ease-in-out infinite;
+}
+
+/* ── Spin slow (decorative) ── */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
 }
 
 /* ══════════════════════════════════════════
