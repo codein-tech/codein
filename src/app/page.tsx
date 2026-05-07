@@ -136,7 +136,7 @@ export default async function HomePage() {
     },
     {
       name: "Nanda",
-      role: "Mahasiswa Informatika 2021",
+      role: "Mahasiswa Informatika 2025",
       quote:
         "Dari CodeIn aku nemu teman project yang serius. Sekarang kami sudah develop 2 aplikasi yang dipakai beneran di kampus.",
       avatar: "NA",
