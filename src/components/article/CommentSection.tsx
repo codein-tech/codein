@@ -6,7 +6,7 @@ import { createClient } from "@/lib/supabase/client";
 import { useToast } from "@/components/ui/Toast";
 import { formatDate } from "@/lib/utils";
 import Link from "next/link";
-import type { Comment, Profile } from "@/types/database";
+import type { Comment, Profile } from "@/lib/types/database";
 import type { User } from "@supabase/supabase-js";
 
 interface Props {
