@@ -148,7 +148,7 @@ export default function Navbar() {
             ) : (
               <div className="flex items-center gap-2">
                 <Link href="/auth/login" className="btn-ghost text-sm py-2">Masuk</Link>
-                <Link href="/auth/register" className="btn-primary text-sm py-2">Daftar</Link>
+                <Link href="https://chat.whatsapp.com/LZWwynFIE148HJiz3Zg0DD" target="_blank" rel="noopener noreferrer" className="btn-primary text-sm py-2">Daftar</Link>
               </div>
             )}
           </div>
@@ -181,7 +181,7 @@ export default function Navbar() {
             ) : (
               <div className="flex gap-2 px-2 pt-2">
                 <Link href="/auth/login" className="btn-secondary flex-1 justify-center text-sm" onClick={() => setMenuOpen(false)}>Masuk</Link>
-                <Link href="/auth/register" className="btn-primary flex-1 justify-center text-sm" onClick={() => setMenuOpen(false)}>Daftar</Link>
+                <Link href="https://chat.whatsapp.com/LZWwynFIE148HJiz3Zg0DD" target="_blank" rel="noopener noreferrer" className="btn-primary flex-1 justify-center text-sm" onClick={() => setMenuOpen(false)}>Daftar</Link>
               </div>
             )}
           </div>
