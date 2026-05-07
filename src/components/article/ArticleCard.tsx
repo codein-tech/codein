@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Clock, Eye, User, Calendar } from "lucide-react";
 import { formatDate, readingTime, truncate } from "@/lib/utils";
-import type { Article } from "@/types/database";
+import type { Article } from "@/lib/types/database";
 
 interface ArticleCardProps {
   article: Article;
