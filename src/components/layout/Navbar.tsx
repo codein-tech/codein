@@ -7,7 +7,7 @@ import { Menu, X, Sun, Moon, Code2, Search, Bell, LogOut, User, LayoutDashboard,
 import { createClient } from "@/lib/supabase/client";
 import { useTheme } from "@/components/ui/ThemeProvider";
 import { cn } from "@/lib/utils";
-import type { Profile } from "@/types/database";
+import type { Profile } from "@/lib/types/database";
 import Image from 'next/image'
 
 export default function Navbar() {
