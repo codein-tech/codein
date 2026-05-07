@@ -43,33 +43,6 @@ export default function RegisterPage() {
     setTimeout(() => {
       setLoading(false);
     }, 5000);
-    return;
-    e.preventDefault();
-    if (password.length < 8) {
-      showToast("Password minimal 8 karakter", "error");
-      return;
-    }
-    setLoading(true);
-
-    const { data, error } = await supabase.auth.signUp({
-      email,
-      password,
-      options: { data: { full_name: fullName } },
-    });
-
-    if (error?.message) {
-      showToast(error!.message, "error");
-    } else if (data.user) {
-      await supabase.from("profiles").upsert({
-        id: data.user.id,
-        full_name: fullName,
-        role: "member",
-      });
-      showToast("Akun berhasil dibuat! Silakan masuk.", "success");
-      router.push("/dashboard");
-      router.refresh();
-    }
-    setLoading(false);
   };
 
   return (
