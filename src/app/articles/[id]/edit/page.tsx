@@ -16,6 +16,7 @@ import { createClient } from "@/lib/supabase/client";
 import { useToast } from "@/components/ui/Toast";
 import Navbar from "@/components/layout/Navbar";
 import TelegraphEditor from "@/components/article/TelegraphEditor";
+import type { Article } from "@/lib/types/database";
 
 export default function EditArticlePage() {
   const [title, setTitle] = useState("");
