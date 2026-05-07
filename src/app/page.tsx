@@ -383,7 +383,7 @@ export default async function HomePage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               {/* Visual */}
               <div className="relative">
-                <div className="relative w-full aspect-square max-w-md mx-auto">
+                <div className="relative w-full aspect-square max-w-md mx-auto overflow-hidden sm:overflow-visible">
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-blue-50 dark:from-blue-900/20 dark:to-dark-800 rounded-3xl" />
                   <div className="absolute inset-4 bg-white dark:bg-dark-800 rounded-2xl shadow-xl flex flex-col items-center justify-center p-8 gap-6">
                     <div className="w-40 h-40 bg-white rounded-2xl flex items-center justify-center animate-float">
