@@ -219,7 +219,7 @@ export default async function HomePage() {
             {/* CTA */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up animate-delay-300">
               <Link
-                href="/auth/register"
+                href="https://chat.whatsapp.com/LZWwynFIE148HJiz3Zg0DD"  target="_blank" rel="noopener noreferrer"
                 className="btn-primary text-base px-8 py-3.5 rounded-2xl animate-btn-glow"
               >
                 Bergabung Sekarang <ArrowRight className="w-5 h-5" />
@@ -800,7 +800,7 @@ export default async function HomePage() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link
-                    href="/auth/register"
+                    href="https://chat.whatsapp.com/LZWwynFIE148HJiz3Zg0DD"  target="_blank" rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-blue-700 font-bold rounded-2xl hover:bg-blue-50 transition-all hover:-translate-y-0.5 shadow-xl"
                   >
                     Bergabung Sekarang <ArrowRight className="w-5 h-5" />
