@@ -58,7 +58,7 @@ export default function RegisterPage() {
     });
 
     if (error?.message) {
-      showToast(error.message, "error");
+      showToast(error!.message, "error");
     } else if (data.user) {
       await supabase.from("profiles").upsert({
         id: data.user.id,
