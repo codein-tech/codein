@@ -428,7 +428,7 @@ export default async function HomePage() {
                     {/* Main card */}
                     <div className="relative w-full h-full bg-gradient-to-br from-blue-100 to-blue-50 dark:from-blue-900/20 dark:to-dark-800 rounded-3xl">
                       <div className="absolute inset-3 bg-white dark:bg-dark-800 rounded-2xl shadow-xl flex flex-col items-center justify-center p-6 gap-4">
-                        <div className="w-32 h-32 bg-white rounded-2xl flex items-center justify-center animate-float shadow-md">
+                        <div className="w-32 h-32 bg-white rounded-2xl flex items-center justify-center animate-float">
                           <Image
                             src="/images/codein.png"
                             alt="CodeIn Logo"
