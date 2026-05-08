@@ -41,10 +41,10 @@ export default function Footer() {
             <h4 className="font-display font-semibold text-gray-900 dark:text-white mb-4">Navigasi</h4>
             <ul className="space-y-2.5">
               {[
-                { href: "https://chat.whatsapp.com/LZWwynFIE148HJiz3Zg0DD", label: "Beranda" },
+                { href: "/", label: "Beranda" },
                 { href: "/articles", label: "Artikel" },
                 { href: "/#about", label: "Tentang Kami" },
-                { href: "/auth/register", label: "Bergabung" },
+                { href: "https://chat.whatsapp.com/LZWwynFIE148HJiz3Zg0DD", label: "Bergabung" },
               ].map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="text-sm text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
