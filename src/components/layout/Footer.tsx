@@ -41,7 +41,7 @@ export default function Footer() {
             <h4 className="font-display font-semibold text-gray-900 dark:text-white mb-4">Navigasi</h4>
             <ul className="space-y-2.5">
               {[
-                { href: "/", label: "Beranda" },
+                { href: "https://chat.whatsapp.com/LZWwynFIE148HJiz3Zg0DD", label: "Beranda" },
                 { href: "/articles", label: "Artikel" },
                 { href: "/#about", label: "Tentang Kami" },
                 { href: "/auth/register", label: "Bergabung" },
@@ -61,7 +61,7 @@ export default function Footer() {
             <div className="flex gap-3">
               {[
                 { icon: Instagram, href: "https://www.instagram.com/codein.umb", label: "Instagram" },
-                { icon: Github, href: "#", label: "GitHub" },
+                { icon: Github, href: "https://github.com/codein-tech", label: "GitHub" },
                 { icon: MessagesSquare, href: "https://chat.whatsapp.com/LZWwynFIE148HJiz3Zg0DD", label: "WhatsApp" },
               ].map(({ icon: Icon, href, label }) => (
                 <a key={label} href={href} aria-label={label} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg bg-white dark:bg-dark-700 border border-gray-200 dark:border-dark-600 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:text-blue-500 hover:border-blue-400 transition-all hover:-translate-y-0.5">
