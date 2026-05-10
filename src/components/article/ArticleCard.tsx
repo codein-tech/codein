@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { Clock, Eye, User, Calendar } from "lucide-react";
 import { formatDate, readingTime, truncate } from "@/lib/utils";
