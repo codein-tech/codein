@@ -30,7 +30,7 @@ export default function ArticleCard({ article, featured = false }: ArticleCardPr
         <div className={`bg-white flex items-center justify-center ${featured ? "md:w-80 md:shrink-0 h-48 md:h-auto" : "h-48"}`}>
           <span className="text-4xl font-display font-bold text-white/20">
             {/* {article.title[0]?.toUpperCase()} */}
-            <span class="font-display font-bold text-xl text-gray-900 dark:text-white">Code<span class="text-blue-500">In</span></span>
+            <span className="font-display font-bold text-xl text-gray-900 dark:text-white">Code<span className="text-blue-500">In</span></span>
           </span>
         </div>
       )}
