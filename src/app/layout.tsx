@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 
     images: [
       {
-        url: "/images/deffault.jpeg",
+        url: "https://codein-umb.vercel.app/og/default.jpg",
         width: 1200,
         height: 630,
         alt: "CodeIn",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "CodeIn",
     description: "Komunitas IT Universitas Muhammadiyah Bengkulu",
-    images: ["/images/deffault.jpeg"],
+    images: ["https://codein-umb.vercel.app/og/default.jpg"],
   },
 };
 
