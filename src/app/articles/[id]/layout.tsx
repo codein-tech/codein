@@ -25,7 +25,6 @@ export async function generateMetadata(
     .eq("slug", id)
     .maybeSingle();
 
-  // fallback id
   if (!article) {
     ({ data: article } = await supabase
       .from("articles")
