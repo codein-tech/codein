@@ -11,7 +11,6 @@ import {
   Pencil,
 } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
-import { createClient as createSupabaseClient } from "@supabase/supabase-js";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CommentSection from "@/components/article/CommentSection";
@@ -27,28 +26,26 @@ export async function generateMetadata(
   { params }: Props
 ): Promise<Metadata> {
 
-  const supabase = createSupabaseClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  );
+  const supabase = await createClient();
 
   let { data: article } = await supabase
     .from("articles")
-    .select("title, content, thumbnail, cover_image")
+    .select("*, profiles(*)")
     .eq("slug", params.id)
-    .maybeSingle();
+    .eq("published", true)
+    .single();
 
   if (!article) {
     ({ data: article } = await supabase
       .from("articles")
-      .select("title, content, thumbnail, cover_image")
+      .select("*, profiles(*)")
       .eq("id", params.id)
-      .maybeSingle());
+      .single());
   }
 
   if (!article) {
     return {
-      title: "Artikel",
+      title: "Tester",
       description: "Artikel CodeIn",
     };
   }
@@ -60,26 +57,18 @@ export async function generateMetadata(
       ?.replace(/<[^>]+>/g, "")
       .slice(0, 160) || "Artikel CodeIn";
 
-  const BASE_URL = "https://codein-umb.vercel.app";
-
-  const rawImage =
-    article.cover_image ||
-    article.thumbnail ||
-    `${BASE_URL}/og/default.jpg`;
-
-  const image = rawImage.startsWith("http")
-    ? rawImage
-    : `${BASE_URL}${rawImage.startsWith("/") ? "" : "/"}${rawImage}`;
+  const image ="https://codein-umb.vercel.app/og/default.jpg";
 
   return {
-    title: { absolute: title },
+    title,
     description,
 
     openGraph: {
       title,
       description,
 
-      url: `${BASE_URL}/articles/${params.id}`,
+      url:
+        `https://codein-umb.vercel.app/articles/${params.id}`,
 
       siteName: "CodeIn",
 
