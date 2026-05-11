@@ -20,66 +20,21 @@ interface Props {
   params: { id: string };
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-
-  const { id } = await params;
-
-  const supabase = await createClient();
-
-  const { data } = await supabase
-    .from("articles")
-    .select("title, content, thumbnail, slug")
-    .eq("slug", id)
-    .single();
-
-  if (!data) {
-    return {
-      title: "Artikel",
-    };
-  }
-
-  const description =
-    data.content?.replace(/<[^>]+>/g, "").slice(0, 160) ||
-    "Artikel CodeIn";
-
-  const imageUrl =
-    data.thumbnail ||
-    "https://codein-umb.vercel.app/og/default.jpg";
-
-  const articleUrl =
-    `https://codein-umb.vercel.app/articles/${data.slug}`;
-
+export async function generateMetadata(): Promise<Metadata> {
   return {
-    metadataBase: new URL("https://codein-umb.vercel.app"),
-
-    title: data.title,
-    description,
+    title: "TEST METADATA",
+    description: "TEST DESCRIPTION",
 
     openGraph: {
-      title: data.title,
-      description,
-      url: articleUrl,
-      siteName: "CodeIn",
-      type: "article",
-
+      title: "TEST METADATA",
+      description: "TEST DESCRIPTION",
       images: [
-        {
-          url: imageUrl,
-          width: 1200,
-          height: 630,
-          alt: data.title,
-        },
+        "https://codein-umb.vercel.app/og/default.jpg",
       ],
-    },
-
-    twitter: {
-      card: "summary_large_image",
-      title: data.title,
-      description,
-      images: [imageUrl],
     },
   };
 }
+
 
 export default async function ArticlePage({ params }: Props) {
   const supabase = await createClient();
