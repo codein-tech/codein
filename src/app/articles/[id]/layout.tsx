@@ -52,13 +52,17 @@ export async function generateMetadata(
 
   return {
     title,
+  
     description,
-
+  
     openGraph: {
-      title,
-      description,
-      type: "article",
-
+      title: title,
+      description: description,
+  
+      url: `https://codein-umb.vercel.app/articles/${id}`,
+  
+      siteName: "CodeIn",
+  
       images: [
         {
           url: image,
@@ -67,12 +71,16 @@ export async function generateMetadata(
           alt: title,
         },
       ],
+  
+      locale: "id_ID",
+  
+      type: "article",
     },
-
+  
     twitter: {
       card: "summary_large_image",
-      title,
-      description,
+      title: title,
+      description: description,
       images: [image],
     },
   };
