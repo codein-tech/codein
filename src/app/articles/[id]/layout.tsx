@@ -14,11 +14,27 @@ export async function generateMetadata(
 
   const supabase = await createClient();
 
-  const { data } = await supabase
+ let { data: article } = await supabase
     .from("articles")
-    .select("title, content, thumbnail, slug")
+    .select("title, content, thumbnail, cover_image, slug")
     .eq("slug", params.id)
     .single();
+
+ 
+  if (!article) {
+    ({ data: article } = await supabase
+      .from("articles")
+      .select("title, content, thumbnail, cover_image, slug")
+      .eq("id", params.id)
+      .single());
+  }
+
+  if (!article) {
+    return {
+      title: "Artikel",
+      description: "Artikel CodeIn",
+    };
+  }
 
   const title = data?.title || "Artikel";
 
