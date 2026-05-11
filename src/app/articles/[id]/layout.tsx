@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { createClient } from "@/lib/supabase/server";
 
+export const dynamic = "force-dynamic";
+
 interface Props {
   children: React.ReactNode;
 
@@ -21,14 +23,15 @@ export async function generateMetadata(
     .from("articles")
     .select("title, content, thumbnail, cover_image, slug")
     .eq("slug", id)
-    .single();
+    .maybeSingle();
 
+  // fallback id
   if (!article) {
     ({ data: article } = await supabase
       .from("articles")
       .select("title, content, thumbnail, cover_image, slug")
       .eq("id", id)
-      .single());
+      .maybeSingle());
   }
 
   if (!article) {
@@ -52,17 +55,17 @@ export async function generateMetadata(
 
   return {
     title,
-  
     description,
-  
+
     openGraph: {
-      title: title,
-      description: description,
-  
-      url: `https://codein-umb.vercel.app/articles/${id}`,
-  
+      title,
+      description,
+
+      url:
+        `https://codein-umb.vercel.app/articles/${id}`,
+
       siteName: "CodeIn",
-  
+
       images: [
         {
           url: image,
@@ -71,24 +74,23 @@ export async function generateMetadata(
           alt: title,
         },
       ],
-  
+
       locale: "id_ID",
-  
+
       type: "article",
     },
-  
+
     twitter: {
       card: "summary_large_image",
-      title: title,
-      description: description,
+      title,
+      description,
       images: [image],
     },
   };
 }
 
-export default async function Layout({
+export default function Layout({
   children,
 }: Props) {
-
   return children;
 }
