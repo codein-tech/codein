@@ -54,8 +54,39 @@ export async function generateMetadata(
 
 
   return {
-  title: "TEST JUDUL ARTIKEL",
-};
+    title,
+    description,
+
+    openGraph: {
+      title,
+      description,
+
+      url:
+        `https://codein-umb.vercel.app/articles/${id}`,
+
+      siteName: "CodeIn",
+
+      images: [
+        {
+          url: image,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+
+      locale: "id_ID",
+
+      type: "article",
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [image],
+    },
+  };
 }
 
 export default function Layout({
