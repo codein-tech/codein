@@ -20,20 +20,9 @@ interface Props {
   params: { id: string };
 }
 
-export async function generateMetadata(): Promise<Metadata> {
-  return {
-    title: "TEST METADATA",
-    description: "TEST DESCRIPTION",
-
-    openGraph: {
-      title: "TEST METADATA",
-      description: "TEST DESCRIPTION",
-      images: [
-        "https://codein-umb.vercel.app/og/default.jpg",
-      ],
-    },
-  };
-}
+export const metadata: Metadata = {
+  title: "STATIC TITLE TEST",
+};
 
 
 export default async function ArticlePage({ params }: Props) {
