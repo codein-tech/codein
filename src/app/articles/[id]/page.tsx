@@ -22,9 +22,7 @@ interface Props {
 
 export const dynamic = "force-dynamic";
 
-export async function generateMetadata(
-  { params }: Props
-): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const supabase = await createClient();
 
@@ -56,21 +54,26 @@ export async function generateMetadata(
       ?.replace(/<[^>]+>/g, "")
       .slice(0, 160) || "Artikel CodeIn";
 
-  const image =
+  const BASE_URL = "https://codein-umb.vercel.app";
+
+  const rawImage =
     article.cover_image ||
     article.thumbnail ||
-    "https://codein-umb.vercel.app/og/default.jpg";
+    `${BASE_URL}/og/default.jpg`;
+
+  const image = rawImage.startsWith("http")
+    ? rawImage
+    : `${BASE_URL}${rawImage.startsWith("/") ? "" : "/"}${rawImage}`;
 
   return {
-    title,
+    title: { absolute: title },
     description,
 
     openGraph: {
       title,
       description,
 
-      url:
-        `https://codein-umb.vercel.app/articles/${params.id}`,
+      url: `${BASE_URL}/articles/${params.id}`,
 
       siteName: "CodeIn",
 
