@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const imageUrl =
     data.thumbnail ||
-    "https://i.ibb.co.com/WvbvHhvV/Whats-App-Image-2026-05-08-at-11-26-18-PM.jpg";
+    "https://codein-umb.vercel.app/og/default.jpg";
 
   const articleUrl = `https://codein-umb.vercel.app/articles/${data.slug}`;
 
