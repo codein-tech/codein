@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowLeft,
@@ -19,7 +20,7 @@ interface Props {
   params: { id: string };
 }
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const supabase = await createClient();
 
   const { data } = await supabase
