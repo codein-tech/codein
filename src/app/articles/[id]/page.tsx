@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const articleUrl = `https://codein-umb.vercel.app/articles/${data.slug}`;
 
   return {
-    title: data.title
+    title: data.title,
     description,
 
     openGraph: {
