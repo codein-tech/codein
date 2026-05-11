@@ -1,5 +1,3 @@
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -21,11 +19,6 @@ import { formatDate, readingTime } from "@/lib/utils";
 interface Props {
   params: { id: string };
 }
-
-export const metadata: Metadata = {
-  title: "STATIC TITLE TEST",
-};
-
 
 export default async function ArticlePage({ params }: Props) {
   const supabase = await createClient();
