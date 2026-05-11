@@ -21,12 +21,57 @@ interface Props {
 
 export async function generateMetadata({ params }: Props) {
   const supabase = await createClient();
+
   const { data } = await supabase
     .from("articles")
-    .select("title,content")
+    .select("title, content, thumbnail, slug")
     .eq("slug", params.id)
     .single();
-  return { title: data?.title ? `${data.title} — CodeIn` : "Artikel — CodeIn" };
+
+  if (!data) {
+    return {
+      title: "Artikel — CodeIn",
+    };
+  }
+
+  const description =
+    data.content?.replace(/<[^>]+>/g, "").slice(0, 160) ||
+    "Artikel CodeIn";
+
+  const imageUrl =
+    data.thumbnail ||
+    "https://i.ibb.co.com/WvbvHhvV/Whats-App-Image-2026-05-08-at-11-26-18-PM.jpg";
+
+  const articleUrl = `https://codein-umb.vercel.app/articles/${data.slug}`;
+
+  return {
+    title: `${data.title} — CodeIn`,
+    description,
+
+    openGraph: {
+      title: data.title,
+      description,
+      url: articleUrl,
+      siteName: "CodeIn",
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: data.title,
+        },
+      ],
+      locale: "id_ID",
+      type: "article",
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title: data.title,
+      description,
+      images: [imageUrl],
+    },
+  };
 }
 
 export default async function ArticlePage({ params }: Props) {
