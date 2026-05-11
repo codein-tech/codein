@@ -11,6 +11,7 @@ import {
   Pencil,
 } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
+import { createClient as createSupabaseClient } from "@supabase/supabase-js";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CommentSection from "@/components/article/CommentSection";
