@@ -14,13 +14,11 @@ export async function generateMetadata(
 
   const supabase = await createClient();
 
- let { data: article } = await supabase
+  let { data: article } = await supabase
     .from("articles")
     .select("title, content, thumbnail, cover_image, slug")
     .eq("slug", params.id)
     .single();
-
- 
   if (!article) {
     ({ data: article } = await supabase
       .from("articles")
@@ -36,16 +34,16 @@ export async function generateMetadata(
     };
   }
 
-  const title = data?.title || "Artikel";
+  const title = article.title;
 
   const description =
-    data?.content
+    article.content
       ?.replace(/<[^>]+>/g, "")
-      .slice(0, 160) ||
-    "Artikel CodeIn";
+      .slice(0, 160) || "Artikel CodeIn";
 
   const image =
-    data?.thumbnail ||
+    article.cover_image ||
+    article.thumbnail ||
     "https://codein-umb.vercel.app/og/default.jpg";
 
   return {
@@ -62,6 +60,7 @@ export async function generateMetadata(
           url: image,
           width: 1200,
           height: 630,
+          alt: title,
         },
       ],
     },
