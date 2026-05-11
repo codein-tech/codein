@@ -6,16 +6,16 @@ export const dynamic = "force-dynamic";
 interface Props {
   children: React.ReactNode;
 
-  params: Promise<{
+  params: {
     id: string;
-  }>;
+  };
 }
 
 export async function generateMetadata(
   { params }: Props
 ): Promise<Metadata> {
 
-  const { id } = await params;
+  const id = params.id;
 
   const supabase = await createClient();
 
@@ -51,7 +51,6 @@ export async function generateMetadata(
     article.cover_image ||
     article.thumbnail ||
     "https://codein-umb.vercel.app/og/default.jpg";
-
 
   return {
     title,
