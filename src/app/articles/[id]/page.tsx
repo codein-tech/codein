@@ -46,11 +46,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const articleUrl = `https://codein-umb.vercel.app/articles/${data.slug}`;
 
   return {
-    title: `${data.title} — CodeIn`,
+    title: data.title
     description,
 
     openGraph: {
-      title: data.title,
+      title: title: {
+        absolute: data.title,
+      },
       description,
       url: articleUrl,
       siteName: "CodeIn",
