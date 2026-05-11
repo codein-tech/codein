@@ -3,27 +3,31 @@ import { createClient } from "@/lib/supabase/server";
 
 interface Props {
   children: React.ReactNode;
-  params: {
+
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export async function generateMetadata(
   { params }: Props
 ): Promise<Metadata> {
 
+  const { id } = await params;
+
   const supabase = await createClient();
 
   let { data: article } = await supabase
     .from("articles")
     .select("title, content, thumbnail, cover_image, slug")
-    .eq("slug", params.id)
+    .eq("slug", id)
     .single();
+
   if (!article) {
     ({ data: article } = await supabase
       .from("articles")
       .select("title, content, thumbnail, cover_image, slug")
-      .eq("id", params.id)
+      .eq("id", id)
       .single());
   }
 
@@ -74,8 +78,9 @@ export async function generateMetadata(
   };
 }
 
-export default function Layout({
+export default async function Layout({
   children,
 }: Props) {
+
   return children;
 }
