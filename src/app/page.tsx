@@ -35,6 +35,51 @@ import AnimatedBackground from "@/components/ui/AnimatedBackground";
 import MarqueeTechs from "@/components/ui/MarqueeTechs";
 import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
 import { TypingWord, FloatingSnippets } from "@/components/ui/HeroExtras";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "CodeIn",
+
+  description:
+    "Komunitas IT Universitas Muhammadiyah Bengkulu",
+
+  openGraph: {
+    title: "CodeIn",
+
+    description:
+      "Komunitas IT Universitas Muhammadiyah Bengkulu",
+
+    url: "https://codein-umb.vercel.app",
+
+    siteName: "CodeIn",
+
+    images: [
+      {
+        url: "https://codein-umb.vercel.app/og/default.jpg",
+        width: 1200,
+        height: 630,
+        alt: "CodeIn",
+      },
+    ],
+
+    locale: "id_ID",
+
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+
+    title: "CodeIn",
+
+    description:
+      "Komunitas IT Universitas Muhammadiyah Bengkulu",
+
+    images: [
+      "https://codein-umb.vercel.app/og/default.jpg",
+    ],
+  },
+};
 
 export default async function HomePage() {
   const supabase = await createClient();
