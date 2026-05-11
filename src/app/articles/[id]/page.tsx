@@ -21,17 +21,20 @@ interface Props {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
+
+  const { id } = await params;
+
   const supabase = await createClient();
 
   const { data } = await supabase
     .from("articles")
     .select("title, content, thumbnail, slug")
-    .eq("slug", params.id)
+    .eq("slug", id)
     .single();
 
   if (!data) {
     return {
-      title: "Artikel — CodeIn",
+      title: "Artikel",
     };
   }
 
@@ -43,19 +46,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     data.thumbnail ||
     "https://codein-umb.vercel.app/og/default.jpg";
 
-  const articleUrl = `https://codein-umb.vercel.app/articles/${data.slug}`;
+  const articleUrl =
+    `https://codein-umb.vercel.app/articles/${data.slug}`;
 
   return {
+    metadataBase: new URL("https://codein-umb.vercel.app"),
+
     title: data.title,
     description,
 
     openGraph: {
-      title: {
-        absolute: data.title,
-      },
+      title: data.title,
       description,
       url: articleUrl,
       siteName: "CodeIn",
+      type: "article",
+
       images: [
         {
           url: imageUrl,
@@ -64,8 +70,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           alt: data.title,
         },
       ],
-      locale: "id_ID",
-      type: "article",
     },
 
     twitter: {
