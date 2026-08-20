@@ -41,21 +41,21 @@ export const metadata: Metadata = {
   title: "CodeIn",
 
   description:
-    "Komunitas IT Universitas Muhammadiyah Bengkulu",
+    "Komunitas IT Bengkulu",
 
   openGraph: {
     title: "CodeIn",
 
     description:
-      "Komunitas IT Universitas Muhammadiyah Bengkulu",
+      "Komunitas IT Bengkulu",
 
-    url: "https://codein-umb.vercel.app",
+    url: "https://codein-community.vercel.app",
 
     siteName: "CodeIn",
 
     images: [
       {
-        url: "https://codein-umb.vercel.app/og/default.jpg",
+        url: "https://codein-community.vercel.app/og/default.jpg",
         width: 1200,
         height: 630,
         alt: "CodeIn",
@@ -73,10 +73,10 @@ export const metadata: Metadata = {
     title: "CodeIn",
 
     description:
-      "Komunitas IT Universitas Muhammadiyah Bengkulu",
+      "Komunitas IT Bengkulu",
 
     images: [
-      "https://codein-umb.vercel.app/og/default.jpg",
+      "https://codein-community.vercel.app/og/default.jpg",
     ],
   },
 };
@@ -131,7 +131,7 @@ export default async function HomePage() {
     {
       icon: Users,
       title: "Networking",
-      desc: "Bangun koneksi dengan mahasiswa IT dari berbagai angkatan dan program studi di UMB.",
+      desc: "Bangun koneksi dengan mahasiswa IT dari berbagai angkatan dan program studi.",
       color: "from-cyan-500 to-cyan-600",
       bg: "bg-cyan-50 dark:bg-cyan-500/10",
     },
@@ -243,7 +243,7 @@ export default async function HomePage() {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20 text-blue-700 dark:text-blue-300 text-sm font-semibold mb-8 animate-fade-up">
               <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
-              Komunitas IT Aktif — Universitas Muhammadiyah Bengkulu
+              Komunitas IT Aktif — Bengkulu
             </div>
 
             {/* Headline — TypingWord is on its own block line so it never causes
